@@ -43,7 +43,7 @@
 }
 
 .headerText {
-  font-size: 1.2rem;
+  font-size: clamp(1.2rem , 5vw , 1.6rem);
   font-weight: 800;
   background: linear-gradient(90deg , rgb(153, 36, 255) ,rgb(16, 146, 179));
   background-clip: text;
@@ -101,6 +101,7 @@
   /* background: linear-gradient(90deg , rgb(36, 233, 255) ,rgb(218, 153, 12)); */
   background-clip: text;
   color: transparent;
+  margin-bottom: .5rem;
 }
 
 
@@ -120,12 +121,12 @@
   margin: .5rem auto 2rem auto;
   background-color: rgba(0, 70, 70, 0.124);
   border-radius: 100px;
-  padding: .3rem .5rem .3rem 1rem;
+  padding: .6rem .5rem .6rem 1rem;
 }
 
 
 .searchIcon {
-  width: 30px;
+  width: 20px;
 }
 
 .searchBar {
@@ -270,12 +271,13 @@
   border-top: 1px solid rgba(255, 255, 255, 0.287);
   /* padding: 1rem; */
   box-sizing: border-box;
-  margin-top: .5rem;
+  margin-top: .5rem auto ;
+  padding: 0 0 1rem 0;
 }
 
 .footerContent {
   width: 100%;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   /* background-color: gold; */
   margin: 0 auto;
   display: flex;
@@ -284,36 +286,64 @@
   flex-wrap: wrap;
   gap: 1rem;
   padding: 0;
-  justify-content: space-between;
+  justify-content: center;
+}
+
+.footerLogoContainer {
+  width: 100%;
+  display: flex;
+  /* max-width: 1200px; */
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg,rgba(24, 12, 43, 0.199),rgba(46, 0, 44, 0.096));
+  gap: 2rem;
+  padding: clamp(.5rem , 2vw , 1rem);
 }
 
 .footerLogo {
-  width: clamp(80px , 15vw , 150px);
+  width: clamp(40px , 5vw , 50px);
   height: auto;
+  /* flex: 1; */
   /* background-color: gold; */
   /* margin: 0 auto; */
 }
 
+.footerTitle {
+  /* flex: 1; */
+  background: linear-gradient(90deg , rgb(153, 36, 255) ,rgb(16, 146, 179));
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
+  font-size: clamp(1rem, 5vw , 1.6rem);
+  min-width: 250px;
+}
+
 .footerContentCard {
   /* background-color: gold; */
-  min-width: 200px;
+  min-width: 230px;
   padding: o;
   margin: 0;
+  box-sizing: border-box;
 }
+
+
 
 
 .footerContentCard ul {
   list-style: none;
-  
+  /* text-align: center; */
+  padding: 0;
 }
 
 .footerContentCard ul li:first-child {
   background: linear-gradient(90deg , rgb(36, 233, 255) ,rgb(218, 153, 12));
   background-clip: text;
   color: transparent;
-
+  font-size: 1.2rem;
 }
 
 .footerContentCard ul li {
   margin-top: .6rem;
+  /* background-color: gold; */
 }

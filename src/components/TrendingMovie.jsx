@@ -95,10 +95,11 @@ const TrendingMovie = () => {
 
         <Swiper spaceBetween={10}  
         ref={swiperRef}
-        modules={[Autoplay,Pagination]} 
-        autoplay={{delay:5000}}   
+        modules={[Autoplay]} 
+        autoplay={{delay:3000}}   
         centeredSlides={true}
         pagination={{clickable:true,dynamicBullets:true}} 
+        speed={600}
         // onSlideChange={item => console.log(item.activeIndex)}
         // slidesPerView={3}
         breakpoints={{
@@ -116,7 +117,7 @@ const TrendingMovie = () => {
         </Swiper>
         
         {
-            activeData ? <div className="currentActiveData" key={activeData?.title} >
+            activeData.title ? <div className="currentActiveData" key={activeData?.title} >
             <span className="activeSlideTitle"  > {activeData.title}</span>
             <span className='releaseDate'  > ( {activeData.releaseDate} )</span>
          </div> : null
