@@ -25,6 +25,15 @@
  background: linear-gradient(45deg,rgb(0, 0, 0),rgb(7, 0, 12),rgb(0, 0, 0));
 }
 
+
+.contentBody {
+  width: 100%;
+  max-width: 1200px;
+  /* padding: 1rem; */
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
 .headerContainer {
   width: 100%;
   display: flex;
@@ -64,6 +73,9 @@
   /* margin-top: 10px; */
   text-transform: capitalize;
 }
+
+
+
 
 
 .trendingMoviesContainer {
@@ -148,6 +160,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-bottom:.5rem;
+  padding-inline: .5rem;
   /* padding-block: 10px; */
 }
 
@@ -160,8 +174,17 @@
 .allMovieBtn {
   border: none;
   outline: none;
+  min-width: 100px;
   padding: .5rem .8rem;
   border-radius: 100px;
+  background-color: transparent;
+  border: 2px solid rgba(44, 14, 212, 0.596);
+}
+
+.allMovieBtn:hover {
+  background-color: rgb(2, 5, 32);
+  transition: all .2s ease-out;
+  box-shadow: 0 0 3px 0 rgba(47, 7, 226, 0.74);
 }
 
 
@@ -189,6 +212,7 @@
 .movieCard {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .posterImg {
@@ -196,6 +220,20 @@
   min-height: 180px;
   margin-bottom: 0;
   object-fit: cover;
+}
+
+.rating {
+  position: absolute;
+  width: 100%;
+  /* height: 50px; */
+  bottom: 35px;
+  font-size: .75rem;
+  /* background-color: red; */
+}
+
+.starIcon {
+  width: .75rem;
+  padding-inline: .3rem;
 }
 
 .movieTitle {
@@ -219,9 +257,9 @@
 
 .swiper-slide-active {
   /* transform: scale(2); */
-  box-shadow: 0 0 3px 1px rgb(174, 0, 255);
+  box-shadow: 0 0 5px 0 rgb(174, 0, 255);
   transition: all 1s ease-in-out;
-  padding-bottom: 1px;
+  padding-bottom: .5px;
   background:linear-gradient(90deg , rgb(103, 9, 255) , rgb(143, 8, 206)) ;
 }
 
@@ -259,34 +297,132 @@
   }
 }
 
+/* Movie Details */
+
+.imageWrapper {
+  display: flex;
+  margin: 0 auto;
+  /* background-color: #61dafbaa; */
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(5px , 10px , 1rem);
+  box-sizing: border-box;
+}
+
+.backImg {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  /* border-bottom-left-radius: 5rem;
+  border-bottom-right-radius: 5rem; */
+}
+
+.detailsHeader {
+  /* background-color: gold; */
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: flex-end; */
+  align-items: flex-start;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: .5rem;
+  box-sizing: border-box;
+}
+
+.posterWrapper {
+  /* position: absolute; */
+  width: 35%;
+  max-width: 140px;
+  left: .5rem;
+  padding: .5rem;
+  /* background-color: rgb(255, 255, 255); */
+  /* box-shadow: 0 5px 1px rgba(67, 70, 255, 0.286),inset 4px 5px 1px rgba(51, 255, 0, 0.286); */
+}
+
+.poster {
+  /* position: absolute; */
+  width: 100%;
+  /* max-width: 120px; */
+  /* min-width: 110px; */
+  left: .5rem;
+  bottom: .5rem;
+  border-radius: 1rem;
+  /* border: 1px solid rgba(255, 255, 255, 0.62); */
+  box-sizing: border-box;
+  box-shadow: 0 0 3px 0 rgba(255, 255, 255, 0.593);
+}
+
+.detailsHeaderInfo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: .5rem;
+  /* background-color: rgb(195, 255, 0); */
+  /* height: 140px; */
+  padding: 1rem;
+}
+
+.d-title {
+  font-size:1.2rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, rgb(153, 36, 255), rgb(16, 146, 179));
+  background-clip: text;
+  color: transparent;
+  /* text-align: center; */
+  margin-bottom: .5rem;
+}
 
 
+.d-text {
+  padding: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
 
+.gen {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: .2rem;
+}
+
+.genBtn {
+  padding: .5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.137);
+  border-radius: 10rem;
+  font-size: .8rem;
+  cursor: pointer;
+}
+
+.genBtn:hover {
+  border-color: rebeccapurple;
+  box-shadow: 0 0 4px 0 rebeccapurple;
+}
 
 /* Footer */
 
 .footer {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.753);
-  border-top: 1px solid rgba(255, 255, 255, 0.287);
+  border-top: 1px solid rgba(255, 255, 255, 0.151);
   /* padding: 1rem; */
   box-sizing: border-box;
-  margin-top: .5rem auto ;
+  margin-top: 4rem auto ;
   padding: 0 0 1rem 0;
 }
 
 .footerContent {
   width: 100%;
-  /* max-width: 1200px; */
-  /* background-color: gold; */
   margin: 0 auto;
   display: flex;
   /* grid-template-columns: repeat(auto-fit,250px); */
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1rem;
-  padding: 0;
+  padding: clamp(.5rem,1.5vw , 1rem);
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .footerLogoContainer {
@@ -296,27 +432,29 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(45deg,rgba(24, 12, 43, 0.199),rgba(46, 0, 44, 0.096));
-  gap: 2rem;
+  /* background: linear-gradient(45deg,rgba(24, 12, 43, 0.199),rgba(46, 0, 44, 0.096)); */
+  /* background-color: red; */
+  gap: .5rem;
   padding: clamp(.5rem , 2vw , 1rem);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.137);
 }
 
 .footerLogo {
-  width: clamp(40px , 5vw , 50px);
+  display: flex;
+  width: clamp(50px , 5vw , 60px);
   height: auto;
-  /* flex: 1; */
-  /* background-color: gold; */
-  /* margin: 0 auto; */
 }
 
 .footerTitle {
-  /* flex: 1; */
+  
   background: linear-gradient(90deg , rgb(153, 36, 255) ,rgb(16, 146, 179));
   background-clip: text;
   color: transparent;
+  /* background-color: gold; */
   font-weight: 800;
-  font-size: clamp(1rem, 5vw , 1.6rem);
-  min-width: 250px;
+  font-size: clamp(1.4rem, 5vw , 2rem);
+  letter-spacing: .5rem;
+  /* min-width: 250px; */
 }
 
 .footerContentCard {
@@ -328,6 +466,17 @@
 }
 
 
+.textRight {
+  text-align: right;
+}
+
+.textLeft {
+  text-align: left;
+}
+
+.textCenter {
+  text-align: left;
+}
 
 
 .footerContentCard ul {
@@ -341,9 +490,36 @@
   background-clip: text;
   color: transparent;
   font-size: 1.2rem;
+  
 }
 
 .footerContentCard ul li {
   margin-top: .6rem;
+  font-size: 1rem;
   /* background-color: gold; */
 }
+
+.copyright {
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  font-size: .8rem;
+}
+
+
+@media screen and (max-width: 500px) {
+  .textLeft , .textRight , .textCenter {
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 500px){
+  .detailsHeaderInfo {
+    padding-left: 2rem;
+  }
+
+  
+}
+
+
+

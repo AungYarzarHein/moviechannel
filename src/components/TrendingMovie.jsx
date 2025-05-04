@@ -118,8 +118,8 @@ const TrendingMovie = () => {
         
         {
             activeData.title ? <div className="currentActiveData" key={activeData?.title} >
-            <span className="activeSlideTitle"  > {activeData.title}</span>
-            <span className='releaseDate'  > ( {activeData.releaseDate} )</span>
+            <span className="activeSlideTitle"  > {activeData.title} ({activeData.releaseDate.split("-")[0]}) </span>
+            {/* <span className='releaseDate'  > ( {activeData.releaseDate} )</span> */}
          </div> : null
         }
     </div>
