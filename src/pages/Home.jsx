@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import icon from "../assets/icon.svg";
 import SearchBar from '../components/SearchBar';
 import MovieCard from '../components/MovieCard';
 import TrendingMovie from '../components/TrendingMovie';
 import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
+import { SearchContext } from '../components/SearchContext';
+import { FadeLoader } from 'react-spinners';
+
 
 
 
@@ -22,11 +25,16 @@ const fetchOptions = {
 
 
 const Home = () => {
-      const [searchText,setSearchText] = useState("");
       const [loading,setLoading] = useState(true);
       const [movieLoading,setMovieLoading] = useState(true);
       const [movieData,setMovieData] = useState([]);
       const navigate = useNavigate();
+      const {searchTerm,setSearchData} = useContext(SearchContext);
+      const [searchText, setSearchText] = useState(searchTerm.text);
+
+     
+
+
 
 
     const fetchMovies = async () => {
@@ -39,6 +47,8 @@ const Home = () => {
             setMovieData(data.results);
             setLoading(false);
             setMovieLoading(false);
+            setSearchData(searchText, data.results);
+
 
         } catch (error) {
             console.log("Error occured")
@@ -46,12 +56,23 @@ const Home = () => {
     }
 
     useEffect(() => {
-      fetchMovies()
+      
+      if(searchTerm.text && searchText == searchTerm.text ){
+        setMovieData(searchTerm.data);
+        setLoading(false);
+        setMovieLoading(false);
+        return;
+      }
+      fetchMovies();
+      
     } ,[searchText])
 
-    const checkSearchText = (text) => { navigate("moviedetails") }
+   
+
+    const onMoviePagination = () => {navigate("/pagination")} 
 
 
+    
 
     return (
         <div className='container'>
@@ -67,21 +88,21 @@ const Home = () => {
             </div>
 
 
-            <SearchBar setSearchText={setSearchText} />
+            <SearchBar setSearchText={setSearchText} searchText={searchText} />
 
 
 
             <div className="movieCardContainer">
                 <div className="btnWrapper">
                     <span className='movieListTitle' > Enjoy Your Time Here </span>
-                    <button className='allMovieBtn' onClick={() => checkSearchText(searchText)} > All Movies </button>
+                    <button className='allMovieBtn' onClick={onMoviePagination} > All Movies </button>
                 </div>
 
 
                 {
                     (movieData.length > 0 && !movieLoading) ? (
                         movieData.map(movie => <MovieCard obj={movie} key={movie.id} />)
-                    ) : <span className='movieLoading' > Loading... </span>
+                    ) : <div className='movieLoading' >  <FadeLoader color='rgb(114, 114, 114)' size={10} /> </div>
                 }
 
 

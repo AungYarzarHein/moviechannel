@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {  useParams } from 'react-router-dom';
 import icon from "../assets/icon.svg";
 import star from "../assets/star.svg";
+import StarRating from '../components/StarRating';
+import { SearchContext } from '../components/SearchContext';
+import { BeatLoader, FadeLoader } from 'react-spinners';
 
 const apiKey = import.meta.env.VITE_TMDB_API_KEY;
+
 
 const MovieDetails = () => {
     const { id } = useParams();
@@ -11,6 +15,8 @@ const MovieDetails = () => {
     const [details , setDetails] = useState(null);
     const [loading,setLoading] = useState(true);
     // const poster = obj.poster_path ? `https://image.tmdb.org/t/p/w500/${obj.poster_path}` : icon ;
+    const {searchTerm} = useContext(SearchContext);
+
    
     // console.log(id);
 
@@ -36,14 +42,15 @@ const MovieDetails = () => {
 
 
     useEffect(() => { ;
-        window.scrollTo(0,0)
+        window.scrollTo(0,0);
+        // console.log(searchTerm)
         fetchMovieDetails()
      } ,[])
 
 
      if(loading) {
         return (
-            <div style={{width:"100%",height:"100dvh",paddingTop:"40dvh",textAlign:"center"}} >loading</div>
+            <div style={{ width: "100%", height: "100dvh",display:"flex",justifyContent:"center",alignItems:"flex-start",paddingTop:"8rem"}} > <BeatLoader color='rgb(79, 80, 81)' /> </div>
         )
      }
 
@@ -75,9 +82,11 @@ const MovieDetails = () => {
                              {details.vote_average}
                     </div>
 
+                    <StarRating rating={details.vote_average} />
+
                    <div className="gen">
                         {
-                            details.genres.map(item => <span className='genBtn' key={item.name} > {item.name} </span>)
+                            details.genres.map(item => <button className='genBtn' key={item.name} > {item.name} </button>)
                         }
                    </div>
                 </div>
@@ -98,14 +107,14 @@ const MovieDetails = () => {
             </div>
 
              
-             <div style={{maxWidth:"600px",margin:"auto",paddingInline:"1rem"}} >
+              <div className='d-text' >
                   <span className="d-title" > Productions </span>
 
              </div>
-            <div  style={{display:"flex",padding:"1rem",gap:"1rem",flexWrap:"wrap",maxWidth:"600px",margin:"auto"}} >
+            <div  style={{display:"flex",padding:"1rem",gap:".5rem",flexWrap:"wrap",maxWidth:"600px",margin:"auto"}} >
                 
                 {
-                      details.production_companies.map(item => <span className='genBtn' key={item.name} > {item.name} </span>)
+                      details.production_companies.map(item => <button className='genBtn' key={item.name} > {item.name} </button>)
                 }
             </div>
 

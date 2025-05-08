@@ -7,6 +7,7 @@ import { Autoplay , Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import "swiper/css/pagination";
+import { BeatLoader, PropagateLoader } from 'react-spinners';
 
 const apiKey = import.meta.env.VITE_TMDB_API_KEY;
 
@@ -43,8 +44,8 @@ const TrendingMovie = () => {
             // console.log(data.results);
             setMovieList(data.results);
             setActiveData({
-                title:data.results[0].name || data.results[0].title,
-                releaseDate:data.results[0].release_date || data.results[0].first_air_date
+                title:data.results[1].name || data.results[1].title,
+                releaseDate:data.results[1].release_date || data.results[1].first_air_date
             } );
 
         } catch (error) {
@@ -55,9 +56,10 @@ const TrendingMovie = () => {
     }
 
     
-
+  
 
     useEffect(() => { 
+        // console.log("Trending")
         fetchMovies()
      } ,[]);
 
@@ -86,10 +88,21 @@ const TrendingMovie = () => {
         return () => swiper.off("slideChange",updateTitle)
       } ,[movieList])
 
+
+
+
+      if(loading) {
+       return (
+           <div className="trendingMoviesContainer" style={{textAlign:"center",paddingBlock:"4rem"}} >
+               <BeatLoader loading color='rgb(36, 233, 255)'  />
+           </div>
+       )
+      }
+
   return (
     <div className='trendingMoviesContainer' >
         <div className='trendTitle' >
-            Trending Movies 
+              Trending Movies 
         </div>
 
 
@@ -100,6 +113,7 @@ const TrendingMovie = () => {
         centeredSlides={true}
         pagination={{clickable:true,dynamicBullets:true}} 
         speed={600}
+        initialSlide={1}
         // onSlideChange={item => console.log(item.activeIndex)}
         // slidesPerView={3}
         breakpoints={{
@@ -108,17 +122,17 @@ const TrendingMovie = () => {
             600:{ slidesPerView:5 },
             720:{ slidesPerView:6 },
             840:{slidesPerView:7},
-            960:{slidesPerView:8},
+            960:{slidesPerView:8}, 
         }}
           >
             {
-                movieList.length > 0 ? movieList.map(item => <SwiperSlide key={item.id} > <MovieCard obj={item} /> </SwiperSlide>) : null
+                  movieList.length > 0 ? movieList.map(item => <SwiperSlide key={item.id} > <MovieCard obj={item} /> </SwiperSlide>) :  null
             }
         </Swiper>
         
         {
             activeData.title ? <div className="currentActiveData" key={activeData?.title} >
-            <span className="activeSlideTitle"  > {activeData.title} ({activeData.releaseDate.split("-")[0]}) </span>
+            <span className="activeSlideTitle"  > {activeData.title} ({activeData.releaseDate?.split("-")[0]}) </span>
             {/* <span className='releaseDate'  > ( {activeData.releaseDate} )</span> */}
          </div> : null
         }
