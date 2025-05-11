@@ -109,7 +109,7 @@ const Home = () => {
                 {
                     !movieLoading ? <div className="btnWrapper">
                         <span className='movieListTitle' > Enjoy Your Time Here </span>
-                        <button className='allMovieBtn' > All Movies </button>
+                        <button className='allMovieBtn' onClick={onMoviePagination} > All Movies </button>
                     </div> : null
                 }
             </div>

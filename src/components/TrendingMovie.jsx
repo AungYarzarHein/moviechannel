@@ -94,17 +94,14 @@ const TrendingMovie = () => {
       if(loading) {
        return (
            <div className="trendingMoviesContainer" style={{textAlign:"center",paddingBlock:"4rem"}} >
-               <BeatLoader loading color='rgb(36, 233, 255)'  />
+               <BeatLoader loading color='rgb(36, 233, 255)' size={10}  />
            </div>
        )
       }
 
   return (
     <div className='trendingMoviesContainer' >
-        <div className='trendTitle' >
-              Trending Movies 
-        </div>
-
+        
 
         <Swiper spaceBetween={10}  
         ref={swiperRef}

@@ -23,6 +23,7 @@
 
 .container {
  background: linear-gradient(45deg,rgb(0, 0, 0),rgb(7, 0, 12),rgb(0, 0, 0));
+ height: 100vh;
 }
 
 
@@ -57,7 +58,7 @@
   background: linear-gradient(90deg , rgb(153, 36, 255) ,rgb(16, 146, 179));
   background-clip: text;
   color:transparent;
-  
+  cursor: pointer;
 }
 
 
@@ -209,7 +210,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 3rem 0;
+  padding-top: 30vh;
   /* font-size: 1rem; */
 }
 
@@ -366,7 +367,7 @@
   /* background-color: rgb(195, 255, 0); */
   /* height: 140px; */
   padding: 1rem;
-  padding-left: clamp(1rem,1rem,2rem);
+  padding-left: clamp(1rem,8vw,3rem);
 }
 
 .d-title {
@@ -408,12 +409,98 @@
   box-shadow: 0 0 3px 0 rebeccapurple;
 }
 
+.downloadContainer {
+  padding-bottom: 2rem;
+  /* height: 20dvh; */
+  padding: .2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.d-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(143, 8, 206, 0.092);
+  padding: .5rem 0 ;
+  /* gap: .5rem; */
+
+  & span {
+    flex: 1;
+    text-align: center;
+    /* background-color: rgb(143, 8, 206); */
+  }
+}
+
+.d-options {
+  padding: .5rem;
+}
+
+.d-option {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.189);
+  padding: .5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.172);
+
+  & span:nth-child(1){
+     flex: .5;
+     color: rgb(255, 255, 255);
+     text-align: left;
+  }
+
+  & span:nth-child(2) {
+    /* background-color: green; */
+    /* flex: 2;
+    display: inline-block;
+    white-space: collapse;
+    text-overflow: hidden; */
+   
+      display: block;
+      flex: 2;
+      color: #ffffff;
+      /* height: 30px; */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: left;
+      padding: .1rem .2rem;
+      white-space: nowrap;
+      overflow: hidden;
+      line-height: 30px;
+      margin: 0;
+
+      & :nth-child(2) {
+        background-color: gold;
+      }
+
+ 
+  }
+
+  & span {
+    flex: 1;
+  }
+}
+
+.blue {
+  color: rgb(0, 119, 255);
+}
+
+.red {
+  color: rgb(255, 53, 53);
+}
+
+.green {
+  color: rgb(30, 169, 30);
+}
 
 
 /* Star Rating */
 
 .star-rating {
-  width:11rem ;
+  width:8.5rem ;
   white-space: nowrap;
   overflow: visible;
   position: relative;
@@ -421,7 +508,7 @@
 }
 
 .star {
-  font-size: 1rem;
+  font-size: .75rem;
   display: inline-block;
   color: #ffffff;
   margin-left: .1rem;
@@ -431,9 +518,9 @@
 
 
 .upStar {
-  font-size: 1rem;
+  font-size: .75rem;
   display: inline-block;
-  color: #ffd500;
+  color: #ffd700;
   margin-left: .1rem;
 }
 
@@ -450,13 +537,80 @@
 
 .p-btn {
   display: flex;
+  /* flex: 1; */
   justify-content: center;
   align-items: center;
   gap: 4px;
 }
 
+.p-pageNum {
+  flex: 1;
+  /* background-color: gold; */
+}
+
 .loadingIcon {
   font-size: 3rem;
+}
+
+
+.dropContainer {
+  max-width: 600px;
+  margin: 0 auto;
+  /* background-color: rgb(255, 217, 0); */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: .5rem ;
+  height: 3rem;
+  justify-content: space-between;
+  margin-top: clamp(1rem,3vw,3rem);
+  gap: 1rem;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.filterBtn {
+  border: 1px solid rgba(255, 255, 255, 0.359);
+  border-radius: 200px;
+  padding: .5rem 1rem;
+}
+
+.selector {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  /* background-color: gold; */
+
+  & span {
+    text-transform: capitalize;
+  }
+}
+
+.select-Items {
+  position: absolute;
+  width: 90%;
+  background-color: rgba(0, 0, 0, 0.849);
+  top: 9%;
+  box-sizing: border-box;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  padding: 2rem 1rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.select-item {
+  display: block;
+  padding: .5rem;
+  /* background-color: brown; */
 }
 
 
@@ -469,7 +623,7 @@
   /* padding: 1rem; */
   /* box-sizing: border-box; */
   margin-top: 4rem auto ;
-  padding: 0 0 1rem 0;
+  padding: 0 ;
 }
 
 .footerContent {

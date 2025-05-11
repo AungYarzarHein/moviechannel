@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
-import {  useParams } from 'react-router-dom';
+import {  useNavigate, useParams } from 'react-router-dom';
 import icon from "../assets/icon.svg";
 import star from "../assets/star.svg";
 import StarRating from '../components/StarRating';
 import { SearchContext } from '../components/SearchContext';
 import { BeatLoader, FadeLoader } from 'react-spinners';
+import DownloadOptions from '../components/DownloadOptions';
+
+
 
 const apiKey = import.meta.env.VITE_TMDB_API_KEY;
 
@@ -16,6 +19,7 @@ const MovieDetails = () => {
     const [loading,setLoading] = useState(true);
     // const poster = obj.poster_path ? `https://image.tmdb.org/t/p/w500/${obj.poster_path}` : icon ;
     const {searchTerm} = useContext(SearchContext);
+    const navigate = useNavigate();
 
    
     // console.log(id);
@@ -50,7 +54,7 @@ const MovieDetails = () => {
 
      if(loading) {
         return (
-            <div style={{ width: "100%", height: "100dvh",display:"flex",justifyContent:"center",alignItems:"flex-start",paddingTop:"8rem"}} > <BeatLoader color='rgb(79, 80, 81)' /> </div>
+            <div style={{ width: "100%", height: "100dvh",display:"flex",justifyContent:"center",alignItems:"flex-start",paddingTop:"30dvh"}} > <BeatLoader color='rgb(79, 80, 81)' size={10} /> </div>
         )
      }
 
@@ -60,7 +64,7 @@ const MovieDetails = () => {
     <div className="container">
          <div className="headerContainer">
             <img src={icon} className="logo" />
-            <span className='headerText' > Movie Channel  </span>
+            <span className='headerText' onClick={()=>navigate("/")} > Movie Channel  </span>
          </div>
 
 
@@ -76,13 +80,13 @@ const MovieDetails = () => {
 
                 <div className="detailsHeaderInfo">
                    <span className="d-title"> {details.title} ({details.release_date.split("-")[0]}) </span>
-
-                   <div style={{paddingBlock:".5rem"}} >
-                      <img src={star} className='starIcon' />
-                             {details.vote_average}
-                    </div>
-
                     <StarRating rating={details.vote_average} />
+
+                      <div style={{ paddingBlock: ".5rem",fontSize:".8rem" }} >
+                          {/* <img src={star} className='starIcon' /> */}
+                          <span >Rating : </span>
+                          {details.vote_average}
+                      </div>
 
                    <div className="gen">
                         {
@@ -119,10 +123,20 @@ const MovieDetails = () => {
             </div>
 
 
+
+             
+             <DownloadOptions />
+             
+
               <div className="imageWrapper">
                   <img src={details.poster_path ? `https://image.tmdb.org/t/p/w500/${details.backdrop_path}` : icon} className='backImg' />
               </div>
+
+
          </div>
+
+
+         
        
     </div>
   )

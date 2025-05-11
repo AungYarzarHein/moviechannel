@@ -9,14 +9,14 @@ import { SearchContext } from '../components/SearchContext';
 
 
 const AppLayout = () => {
-   const [searchTerm,setSearchTerm] = useState({text:"",data:[] , page:1 , pageData:[]});
+   const [searchTerm,setSearchTerm] = useState({text:"",data:[] , page:1 , pageData:[],category:"popular"});
 
    const setSearchData = (text , data) => {
       setSearchTerm({...searchTerm , text,data})
    }
 
-   const setPage = (num , data) => {
-    setSearchTerm({...searchTerm,page:num,pageData:data});
+   const setPage = ({page,pageData,category}) => {
+    setSearchTerm({...searchTerm,page,pageData,category});
    }
     
   return (
