@@ -10,7 +10,7 @@ const DownloadOptions = () => {
   return (
      <div className="downloadContainer">
                     <div className="d-header">
-                          <span>Download</span>
+                          <span><FaCloudDownloadAlt /></span>
                           <span>Server</span>
                           <span>Size</span>
                           <span>Quality</span>

@@ -102,11 +102,6 @@ const MovieDetails = () => {
                   <p>{details.overview}</p>
                   <p>{details.overview}</p>
                   <p>{details.overview}</p>
-                  <p>{details.overview}</p>
-                  <p>{details.overview}</p>
-                  <p>{details.overview}</p>
-                  <p>{details.overview}</p>
-                  <p>{details.overview}</p>
                   
             </div>
 

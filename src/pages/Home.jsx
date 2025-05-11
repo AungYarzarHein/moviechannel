@@ -6,7 +6,7 @@ import TrendingMovie from '../components/TrendingMovie';
 import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
 import { SearchContext } from '../components/SearchContext';
-import { FadeLoader } from 'react-spinners';
+import { BeatLoader, FadeLoader } from 'react-spinners';
 
 
 
@@ -102,7 +102,7 @@ const Home = () => {
                 {
                     (movieData.length > 0 && !movieLoading) ? (
                         movieData.map(movie => <MovieCard obj={movie} key={movie.id} />)
-                    ) : <div className='movieLoading' >  <FadeLoader color='rgb(114, 114, 114)' size={10} /> </div>
+                    ) : <div className='movieLoading' style={{paddingTop:"10vh"}} >  <BeatLoader color='rgb(114, 114, 114)' size={10} /> </div>
                 }
 
 

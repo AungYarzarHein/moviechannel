@@ -120,6 +120,8 @@ const TrendingMovie = () => {
             720:{ slidesPerView:6 },
             840:{slidesPerView:7},
             960:{slidesPerView:8}, 
+            1080:{slidesPerView:9}, 
+            1200:{slidesPerView:10}, 
         }}
           >
             {

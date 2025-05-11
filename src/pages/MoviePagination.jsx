@@ -36,7 +36,7 @@ const Pagination = () => {
     
     const endpoint = `${endpoints[filterText]}${pageNum}`;
     // const endpoint = `https://api.themoviedb.org/3/discover/movie?with_genres=28&sort_by=popularity.desc&page=${pageNum}`;
-    console.log(endpoint)
+    
     try {
       const res = await fetch(endpoint, {method:"GET",headers:{accept:"application/json",Authorization:`Bearer ${apiKey}`}});
       const data = await res.json();
@@ -50,7 +50,7 @@ const Pagination = () => {
         pageData:data.results,
         category:filterText
       }
-      console.log(obj);
+      // console.log(obj);
       setPage(obj);
       // setPage(pageNum,data.results,filterText);
       // console.log(data.results);

@@ -32,7 +32,7 @@ const DropdownSelector = ({setFilter}) => {
             <span> {text} </span>
             <IoChevronDownSharp />
         </div>
-        <button className="filterBtn" onClick={() => onFilterSearch(text)} > Search </button>
+        <button className="allMovieBtn"  onClick={() => onFilterSearch(text)} > Search </button>
 
 
        {
@@ -43,7 +43,7 @@ const DropdownSelector = ({setFilter}) => {
                   <button onClick={() => chooseItem("animation")} className="select-item"> Animation </button>
                   <button onClick={() => chooseItem("adult")} className="select-item"> Adult </button>
                   <button onClick={() => chooseItem("comedy")} className="select-item"> Comedy </button>
-                  <button onClick={() => chooseItem("corror & Chrime")} className="select-item"> Horror & Chrime </button>
+                  <button onClick={() => chooseItem("horror")} className="select-item"> Horror & Chrime </button>
                   <button onClick={() => chooseItem("drama")} className="select-item"> Drama </button>
               </div>
        }

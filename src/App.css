@@ -1,9 +1,10 @@
 
 
 .logo {
-  height: 3em;
+  height: 2.5em;
   will-change: filter;
   transition: filter 300ms;
+  user-select: none;
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
@@ -59,6 +60,7 @@
   background-clip: text;
   color:transparent;
   cursor: pointer;
+  user-select: none;
 }
 
 
@@ -162,11 +164,12 @@
   align-items: center;
   /* margin-block:.5rem; */
   padding-inline: .5rem;
+  margin-block: .5rem;
   /* padding-block: 10px; */
 }
 
 .movieListTitle {
-  font-size: clamp(.9rem ,3vw,1.3rem);
+  font-size: clamp(1rem ,3vw,1.3rem);
   /* font-weight: 600; */
   color: #ffffff;
 }
@@ -176,7 +179,7 @@
   outline: none;
   min-width: 100px;
   padding: .5rem .8rem;
-  border-radius: 100px;
+  border-radius: 10px;
   background-color: transparent;
   border: 2px solid rgba(44, 14, 212, 0.596);
 }
@@ -194,7 +197,7 @@
   margin: 0 auto;
   padding: 5px;
   padding-bottom: 3rem;
-  gap: 10px;
+  gap: 5px;
   /* background-color: gold; */
   grid-template-columns:repeat(auto-fill,110px);
   justify-content: center;
@@ -218,11 +221,13 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  background-color: rgba(0, 85, 255, 0.178);
 }
 
 .posterImg {
   width: 100%;
-  min-height: 180px;
+  aspect-ratio: 3/4;
+  /* min-height: 180px; */
   margin-bottom: 0;
   object-fit: cover;
 }
@@ -245,7 +250,7 @@
   display: block;
   color: #ffffff;
   font-size: .75rem;
-  background-color: rgba(0, 85, 255, 0.178);
+  /* background-color: rgba(0, 85, 255, 0.178); */
   height: 30px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -386,6 +391,7 @@
   max-width: 600px;
   margin: 0 auto;
   /* background-color: gold; */
+  line-height: 1.6;
   box-sizing: border-box;
 }
 
@@ -417,21 +423,49 @@
   margin: 0 auto;
 }
 
-.d-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgba(143, 8, 206, 0.092);
-  padding: .5rem 0 ;
-  /* gap: .5rem; */
+.d-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(19, 20, 57, 0.746);
+    padding: .3rem .5rem ;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.172);
 
-  & span {
-    flex: 1;
-    text-align: center;
-    /* background-color: rgb(143, 8, 206); */
+    & span:nth-child(1) {
+      flex: .5;
+      color: rgb(255, 255, 255);
+      text-align: left;
+    }
+
+    & span:nth-child(2) {
+
+      display: block;
+      flex: 2;
+      color: #ffffff;
+      /* height: 30px; */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: left;
+      padding: .1rem .2rem;
+      white-space: nowrap;
+      overflow: hidden;
+      line-height: 30px;
+      margin: 0;
+
+      & :nth-child(2) {
+        background-color: gold;
+      }
+
+
+    }
+
+    & span {
+      flex: 1;
+    }
   }
-}
+
+
 
 .d-options {
   padding: .5rem;
@@ -453,11 +487,6 @@
   }
 
   & span:nth-child(2) {
-    /* background-color: green; */
-    /* flex: 2;
-    display: inline-block;
-    white-space: collapse;
-    text-overflow: hidden; */
    
       display: block;
       flex: 2;
@@ -564,7 +593,7 @@
   height: 3rem;
   justify-content: space-between;
   margin-top: clamp(1rem,3vw,3rem);
-  gap: 1rem;
+  gap: .3rem;
   position: relative;
   box-sizing: border-box;
 }
@@ -582,17 +611,21 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  /* background-color: gold; */
+  padding: .5rem .8rem;
+  border-radius: 6px;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.075);
 
   & span {
     text-transform: capitalize;
+    font-size:.9rem;
   }
 }
 
 .select-Items {
   position: absolute;
-  width: 90%;
-  background-color: rgba(0, 0, 0, 0.849);
+  width: 100%;
+  background-color: rgb(0, 0, 0);
   top: 9%;
   box-sizing: border-box;
   left: 50%;
@@ -601,6 +634,9 @@
   flex-direction: column;
   z-index: 1000;
   padding: 2rem 1rem;
+  font-size: 1rem;
+  gap: .5rem;
+  
 }
 
 .flex {
@@ -609,9 +645,17 @@
 
 .select-item {
   display: block;
-  padding: .5rem;
-  /* background-color: brown; */
+  padding: .8rem;
+  /* border-bottom: .5px solid rgba(255, 255, 255, 0.072); */
+  /* background-color: rgba(255, 255, 255, 0.045); */
+  font-size: .9rem;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.045);
+  }
 }
+
+
 
 
 /* Footer */
